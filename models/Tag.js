@@ -13,7 +13,7 @@ Tag.init(
       allowNull: false
     },
     tag_name: {
-      tyep: DataTypes.STRING
+      type: DataTypes.STRING
     }
   },
   {
