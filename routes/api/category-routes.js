@@ -6,7 +6,7 @@ const { Category, Product } = require('../../models');
 router.get('/', async (req, res) => {
   try {
   const CategoryData = await Category.findAll({
-    include: [{ model: Product, attributes: ['id', 'product_name'] }]
+    include: [{ model: Product }]
   });
   res.status(200).json(CategoryData);
 } catch (err) {
@@ -17,11 +17,11 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
       const categoryPk = await Category.findByPk(req.params.id, {
-        include: [{ model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id']}]
+        include: [{ model: Product }]
       });
   
       if (!categoryPk) {
-        res.status(404).json({ message: 'No location found with this id!' });
+        res.status(404).json('No category found with this id!');
         return;
       }
   
@@ -44,14 +44,14 @@ router.put('/:id', async (req, res) => {
   try {
     const categoryPk = await Category.findByPk(req.params.id);
     if (!categoryPk) {
-      res.status(404).json({ message: 'No category found with this id!' });
+      res.status(404).json('No category found with this id!');
       return;
     }
     
-    await categoryPk.update(req.body); // assuming that the request body contains the updated data
+    await categoryPk.update(req.body); 
     
     const updatedCategory = await Category.findByPk(req.params.id, {
-      include: [{ model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id'] }]
+      include: [{ model: Product }]
     });
     
     res.status(200).json(updatedCategory);
@@ -69,7 +69,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!deleteCategory) {
-      res.status(404).json({ message: 'No location found with this id!' });
+      res.status(404).json('No category found with this id!');
       return;
     }
 
