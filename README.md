@@ -20,6 +20,5 @@
 
 - Finally, keep the local server running and open whatever REST API you use. If you dont have one installed, I use [Insomnia](https://insomnia.rest/)
 
-- Once you've done all of that make you can make `GET` `POST` `PUT` and `DELETE` requests to the database 
-
+- Once you've done all of that make you can make `GET` `POST` `PUT` and `DELETE` requests to the database npm
 
