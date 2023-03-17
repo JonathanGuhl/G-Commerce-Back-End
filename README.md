@@ -22,3 +22,7 @@
 
 - Once you've done all of that make you can make `GET` `POST` `PUT` and `DELETE` requests to the database npm
 
+
+
+https://user-images.githubusercontent.com/119094131/225812266-77cf1067-3645-4dde-8076-e2ec93bd1556.mp4
+
